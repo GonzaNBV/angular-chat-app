@@ -1,0 +1,115 @@
+=========================================
+        EXPLICACIÓN DEL PROYECTO
+        Clon de Chat en Angular 17
+=========================================
+
+DESCRIPCIÓN GENERAL
+
+Este proyecto es una aplicación web desarrollada en Angular 17 que simula
+el funcionamiento de un chat. La aplicación utiliza especialidades médicas
+como ejemplo visual, donde cada especialidad representa un contacto y cada
+consulta una conversación independiente.
+
+No se trata de un sistema médico real, sino de una simulación con fines
+educativos para aplicar los conceptos vistos en la materia.
+
+-----------------------------------------
+
+OBJETIVO DEL PROYECTO
+
+El objetivo principal fue aplicar los conceptos fundamentales de Angular 17:
+- Componentes standalone
+- Routing
+- Formularios reactivos
+- Control Flow moderno
+- Diseño responsive
+- Manejo de estado con Signals
+
+-----------------------------------------
+
+ESTRUCTURA Y ARQUITECTURA
+
+La aplicación utiliza componentes standalone, sin NgModule.
+La navegación se gestiona mediante provideRouter.
+
+La estructura del proyecto se divide en:
+- pages: pantallas principales
+- services: lógica del negocio
+- models: interfaces de datos
+- components: componentes reutilizables
+
+La lógica del chat está centralizada en un servicio para evitar duplicación
+de código y facilitar el mantenimiento.
+
+-----------------------------------------
+
+RUTAS DE LA APLICACIÓN
+
+- / → Pantalla de inicio
+- /especialidades → Lista de chats
+- /especialidades/:id → Conversación seleccionada
+- /consultas → Vista alternativa
+- /consultas/:id → Conversación alternativa
+
+Ambas rutas funcionan de la misma manera, cambiando solo el contexto visual.
+
+-----------------------------------------
+
+FUNCIONAMIENTO DEL CHAT
+
+1. El usuario ingresa a la aplicación.
+2. Selecciona una especialidad.
+3. El sistema verifica si el chat ya existe.
+4. Si existe, reutiliza el historial.
+5. Si no existe, crea un nuevo chat.
+6. El usuario envía mensajes.
+7. La aplicación responde automáticamente luego de 500 ms.
+
+Cada chat mantiene su historial de forma independiente.
+
+-----------------------------------------
+
+FORMULARIOS Y VALIDACIONES
+
+El formulario de mensajes utiliza Reactive Forms.
+Validaciones implementadas:
+- El mensaje no puede estar vacío.
+- Máximo de 500 caracteres.
+
+El botón de envío solo se habilita si el formulario es válido.
+
+-----------------------------------------
+
+DIRECTIVAS DE ANGULAR 17
+
+Se utilizan las directivas modernas:
+- @if para renderizado condicional
+- @for para iteración de listas con track
+
+Estas directivas reemplazan a *ngIf y *ngFor.
+
+-----------------------------------------
+
+MANEJO DE ESTADO
+
+El estado se gestiona con Signals y Computed.
+Esto permite que los componentes se actualicen automáticamente
+cuando cambia la información, sin usar subscriptions manuales.
+
+-----------------------------------------
+
+DISEÑO Y ESTILOS
+
+Los estilos están realizados con CSS puro.
+Se utiliza Flexbox para el layout y media queries para el diseño responsive.
+
+Se implementó un archivo de estilos compartidos para evitar duplicación
+entre los componentes de chat y consulta.
+
+-----------------------------------------
+
+CONCLUSIÓN
+
+El proyecto cumple con los requisitos solicitados en la consigna.
+Permite aplicar correctamente los conceptos de Angular 17, mantiene
+una buena organización del código y presenta una interfaz clara y responsive.

@@ -1,0 +1,78 @@
+.home-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f5f7fa 0%, #eef2f7 100%);
+  position: relative;
+  overflow: hidden;
+  padding: 60px;
+}
+
+.home-content {
+  text-align: center;
+  z-index: 5;
+}
+
+.home-logo {
+  width: 140px;
+  height: auto;
+  margin: 0 auto 24px;
+  display: block;
+}
+
+.home-title {
+  font-size: 32px;
+  font-weight: 600;
+  color: #2c3e50;
+  margin: 0 0 12px 0;
+  letter-spacing: -0.3px;
+}
+
+.home-subtitle {
+  font-size: 16px;
+  color: #7f8c8d;
+  margin: 0 0 36px 0;
+  opacity: 0.8;
+  line-height: 1.5;
+}
+
+.home-button {
+  background-color: #212121;
+  color: #ffffff;
+  padding: 16px 44px;
+  min-width: 320px;
+  font-size: 15px;
+  border-radius: 999px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 16px rgba(33, 33, 33, 0.12);
+}
+
+.home-button:hover {
+  background-color: #000000;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(33, 33, 33, 0.16);
+}
+
+@media (max-width: 768px) {
+  .home-container {
+    padding: 20px;
+  }
+
+  .home-title {
+    font-size: 24px;
+  }
+
+  .home-subtitle {
+    font-size: 13px;
+  }
+
+  .home-button {
+    min-width: 200px;
+    padding: 12px 28px;
+    font-size: 13px;
+  }
+}

@@ -1,0 +1,38 @@
+@if (specialty()) {
+  <div class="chat-section">
+    <div class="chat-header">
+      <img [src]="specialty()!.avatar" 
+           [alt]="specialty()!.name" 
+           class="header-avatar" />
+      <div class="header-info">
+        <h2>{{ specialty()!.name }}</h2>
+        <p>{{ chat()?.isOnline ? 'En línea' : 'Offline' }}</p>
+      </div>
+    </div>
+
+    <div class="messages-area" #messagesContainer>
+      @for (message of messages(); track message.id) {
+        <div class="message" [ngClass]="message.sender === 'user' ? 'user' : 'bot'">
+          @if (message.sender === 'bot') {
+            <div class="message-content" [innerHTML]="message.content"></div>
+          } @else {
+            <div class="message-content">{{ message.content }}</div>
+          }
+          <div class="message-time">{{ message.timestamp | date:'short' }}</div>
+        </div>
+      }
+    </div>
+
+    <div class="input-area">
+      <form [formGroup]="consultaForm" (ngSubmit)="sendConsulta()" class="message-form">
+        <input type="text" 
+               formControlName="consulta"
+               class="message-input" 
+               placeholder="Escriba su consulta..." />
+        <button type="submit" 
+                class="send-button" 
+                [disabled]="!consultaForm.valid">Enviar</button>
+      </form>
+    </div>
+  </div>
+}

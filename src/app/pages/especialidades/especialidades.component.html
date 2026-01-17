@@ -1,0 +1,49 @@
+<div class="especialidades-container">
+  <div class="sidebar-wrapper">
+    <button class="back-home-btn" routerLink="/">
+      <i class="bi bi-arrow-left-circle"></i>
+      <span>Volver</span>
+    </button>
+    <div class="sidebar">
+      <div class="sidebar-header">
+        <h2>Asistente Médico Virtual</h2>
+      </div>
+
+      <div class="specialties-list">
+        @for (specialty of specialties(); track specialty.id) {
+          <a [routerLink]="[specialty.id]" 
+             class="specialty-card"
+             routerLinkActive="active"
+             [routerLinkActiveOptions]="{ exact: false }">
+            <img [src]="specialty.avatar" 
+                 [alt]="specialty.name" 
+                 class="specialty-avatar"
+                 width="48"
+                 height="48" />
+            <div class="specialty-text">
+              <h3>{{ specialty.name }}</h3>
+              <p>{{ specialty.description }}</p>
+            </div>
+          </a>
+        }
+      </div>
+    </div>
+  </div>
+
+  @if (isSpecialtyActive()) {
+    <router-outlet></router-outlet>
+  } @else {
+    <div class="empty-message">
+      <p>Seleccione una especialidad para consultar</p>
+    </div>
+  }
+
+  @if (isSpecialtyActive() && currentSpecialty()) {
+    <app-info [specialty]="{
+      id: currentSpecialty()!.specialtyId,
+      name: currentSpecialty()!.specialtyName,
+      avatar: currentSpecialty()!.specialtyAvatar,
+      description: ''
+    }"></app-info>
+  }
+</div>
